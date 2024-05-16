@@ -58,10 +58,11 @@ with tag('html'):
         with tag('title'):
             text('3x2 Grid of 5x5 Grids Example')
         with tag('style'):
-            # Set the width of each individual grid to 5 inches and height to 3 inches
-            text('.grid { width: 5in; height: 3in; float: left; margin: 5px; }')
+            # Set the width and height of each individual grid to 5 inches and 3 inches respectively, with a maximum of 20% of the available space
+            text('.grid { width: 5in; height: 3in; float: left; margin: 5px; overflow: hidden; font-size: 12px; }')
             text('.grid table { width: 100%; height: 100%; table-layout: fixed; border-collapse: collapse; }')
-            text('.grid td { width: 20%; height: 20%; border: 1px solid black; text-align: center; }')
+            text('.grid tr { max-width: 20%; max-height: 20%; border: 1px solid black; text-align: center; overflow: hidden; text-overflow: ellipsis; }')
+            text('.grid td { max-width: 20%; max-height: 20%; border: 1px solid black; text-align: center; overflow: hidden; text-overflow: ellipsis; }')
             text('.clear { clear: both; }')
     with tag('body'):
         for row in range(num_rows):
